@@ -1,14 +1,32 @@
 package by.kutsko.domain;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * Created by Vasili on 020 20.01.17.
  */
+@Entity
+@Table(name = "users")
 public class User extends NamedEntity {
 
+    @Column(name = "email", nullable = false, unique = true)
+    @Email
+    @NotEmpty
     private String email;
+
+    @Column(name = "password", nullable = false)
+    @NotEmpty
+    @Length(min = 5)
     private String password;
+
+    @Column(name = "registered", columnDefinition = "timestamp default now()")
     private Date registered = new Date();
 
     public User() {

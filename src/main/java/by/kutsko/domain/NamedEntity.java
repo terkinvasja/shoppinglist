@@ -1,10 +1,18 @@
 package by.kutsko.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
 /**
  * Created by Vasili on 020 20.01.17.
  */
+@MappedSuperclass
 public class NamedEntity extends BaseEntity {
 
+    @Column(name = "name", nullable = false)
+    @NotEmpty
     protected String name;
 
     public NamedEntity() {
