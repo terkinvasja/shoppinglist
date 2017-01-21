@@ -1,25 +1,31 @@
-DROP TABLE IF EXISTS user_roles;
-DROP TABLE IF EXISTS users;
-DROP SEQUENCE IF EXISTS global_seq;
+-- http://stackoverflow.com/questions/13223820/postgresql-delete-all-content
+-- TRUNCATE public CASCADE;
 
-CREATE SEQUENCE global_seq START 100000;
+-- http://stackoverflow.com/a/4991969/548473
+-- TRUNCATE SCHEMA public AND COMMIT;
+DELETE FROM users;
 
-CREATE TABLE users
-(
-  id         INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
-  name       VARCHAR NOT NULL,
-  email      VARCHAR NOT NULL,
-  password   VARCHAR NOT NULL,
-  registered TIMESTAMP DEFAULT now(),
-  enabled    BOOL DEFAULT TRUE,
-  calories_per_day INTEGER DEFAULT 2000 NOT NULL
-);
-CREATE UNIQUE INDEX users_unique_email_idx ON users (email);
+ALTER SEQUENCE global_seq RESTART WITH 100000;
 
-CREATE TABLE user_roles
-(
-  user_id INTEGER NOT NULL,
-  role    VARCHAR,
-  CONSTRAINT user_roles_idx UNIQUE (user_id, role),
-  FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
-);
+-- $2a$10$Sh0ZD2NFrzRRJJEKEWn8l.92ROEuzlVyzB9SV1AM8fdluPR0aC1ni
+INSERT INTO users (name, email, password)
+VALUES ('User', 'user@yandex.ru', 'admin');
+
+-- $2a$10$WejOLxVuXRpOgr4IlzQJ.eT4UcukNqHlAiOVZj1P/nmc8WbpMkiju
+INSERT INTO users (name, email, password)
+VALUES ('Admin', 'admin@gmail.com', 'password');
+
+/*INSERT INTO user_roles (role, user_id) VALUES
+  ('ROLE_USER', 100000),
+  ('ROLE_ADMIN', 100001),
+  ('ROLE_USER', 100001);*/
+
+/*INSERT INTO meals (date_time, description, calories, user_id) VALUES
+  ('2015-05-30 10:00:00', 'Завтрак', 500, 100000),
+  ('2015-05-30 13:00:00', 'Обед', 1000, 100000),
+  ('2015-05-30 20:00:00', 'Ужин', 500, 100000),
+  ('2015-05-31 10:00:00', 'Завтрак', 500, 100000),
+  ('2015-05-31 13:00:00', 'Обед', 1000, 100000),
+  ('2015-05-31 20:00:00', 'Ужин', 510, 100000),
+  ('2015-06-01 14:00:00', 'Админ ланч', 510, 100001),
+  ('2015-06-01 21:00:00', 'Админ ужин', 1500, 100001);*/
