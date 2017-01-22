@@ -3,12 +3,14 @@ package by.kutsko.repository.datajpa;
 import by.kutsko.domain.User;
 import by.kutsko.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by Vasili on 021 21.01.17.
  */
+@Repository
 public class DataJpaUserRepositoryImpl implements UserRepository {
 
     @Autowired

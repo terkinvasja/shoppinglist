@@ -1,6 +1,7 @@
 package by.kutsko.repository;
 
 import by.kutsko.domain.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
