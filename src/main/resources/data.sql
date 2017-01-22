@@ -13,7 +13,7 @@ VALUES ('User', 'user@yandex.ru', 'admin');
 
 -- $2a$10$WejOLxVuXRpOgr4IlzQJ.eT4UcukNqHlAiOVZj1P/nmc8WbpMkiju
 INSERT INTO users (name, email, password)
-VALUES ('Admin', 'admin@gmail.com', 'password');
+VALUES ('Admin Василий', 'admin@gmail.com', 'password');
 
 /*INSERT INTO user_roles (role, user_id) VALUES
   ('ROLE_USER', 100000),
