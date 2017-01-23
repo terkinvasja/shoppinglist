@@ -1,5 +1,6 @@
 package by.kutsko;
 
+import by.kutsko.web.json.JacksonObjectMapper;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -21,14 +22,14 @@ public class ShoppinglistApplication {
 	@Bean
 	public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
 		MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
-		ObjectMapper MAPPER = new ObjectMapper();
+/*		ObjectMapper MAPPER = new ObjectMapper();
 		MAPPER.registerModule(new Hibernate5Module());
 		MAPPER.registerModule(new JavaTimeModule());
 		//MAPPER.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 		MAPPER.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.NONE);
 		MAPPER.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-		MAPPER.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-		jsonConverter.setObjectMapper(MAPPER);
+		MAPPER.setSerializationInclusion(JsonInclude.Include.NON_NULL);*/
+		jsonConverter.setObjectMapper(JacksonObjectMapper.getMapper());
 		return jsonConverter;
 	}
 
