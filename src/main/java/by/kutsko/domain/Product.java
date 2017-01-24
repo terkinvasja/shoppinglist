@@ -9,8 +9,10 @@ public class Product extends NamedEntity {
 
     private Date created = new Date();
 
+    // количество
     private Integer quantity;
 
+    // единица измерения
     private Dimension dimension;
 
     private Integer price;

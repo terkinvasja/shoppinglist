@@ -5,11 +5,11 @@ package by.kutsko.domain;
  */
 public class Category extends NamedEntity {
 
-    private int red;
+    private short red;
 
-    private int green;
+    private short green;
 
-    private int blue;
+    private short blue;
 
     private User user;
 
@@ -17,7 +17,7 @@ public class Category extends NamedEntity {
     }
 
 
-    public Category(Integer id, String name, int red, int green, int blue, User user) {
+    public Category(Integer id, String name, short red, short green, short blue, User user) {
         super(id, name);
         this.red = red;
         this.green = green;
