@@ -24,22 +24,22 @@ public class Product extends NamedEntity {
     public Product() {
     }
 
-    public Product(Integer id, String name, Integer quantity, Dimension dimension, Category category, User user) {
-        super(id, name);
-        this.quantity = quantity;
-        this.dimension = dimension;
-        this.price = null;
-        this.description = null;
-        this.category = category;
-        this.user = user;
-    }
-
     public Product(Integer id, String name, Integer quantity, Dimension dimension, Integer price, String description, Category category, User user) {
         super(id, name);
         this.quantity = quantity;
         this.dimension = dimension;
         this.price = price;
         this.description = description;
+        this.category = category;
+        this.user = user;
+    }
+
+    public Product(Integer id, String name, Integer quantity, Dimension dimension, Category category, User user) {
+        super(id, name);
+        this.quantity = quantity;
+        this.dimension = dimension;
+        this.price = null;
+        this.description = null;
         this.category = category;
         this.user = user;
     }
