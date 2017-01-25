@@ -1,26 +1,37 @@
 package by.kutsko.domain;
 
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Created by Vasili on 023 23.01.17.
  */
+@Entity
+@Table(name = "user_product")
 public class Product extends NamedEntity {
 
+    @Column(name = "created", columnDefinition = "timestamp default now()")
     private Date created = new Date();
 
     // количество
+    @Column(name = "quantity")
     private Integer quantity;
 
     // единица измерения
     private Dimension dimension;
 
+    @Column(name = "price")
     private Integer price;
 
+    @Column(name = "description")
     private String description;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public Product() {
