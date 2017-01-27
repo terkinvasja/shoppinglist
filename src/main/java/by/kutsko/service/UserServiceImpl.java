@@ -26,6 +26,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void update(User user) {
+        Assert.notNull(user, "user must not be null");
+        repository.save(user);
+    }
+
+    @Override
     public void delete(int id) throws NotFoundException {
         ExceptionUtil.checkNotFoundWithId(repository.delete(id), id);
     }
@@ -43,11 +49,5 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAll() {
         return repository.getAll();
-    }
-
-    @Override
-    public void update(User user) {
-        Assert.notNull(user, "user must not be null");
-        repository.save(user);
     }
 }

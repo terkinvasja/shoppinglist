@@ -42,4 +42,36 @@ public class Category extends NamedEntity {
         this.blue = 128;
         this.blue = 128;
     }
+
+    public short getRed() {
+        return red;
+    }
+
+    public void setRed(short red) {
+        this.red = red;
+    }
+
+    public short getGreen() {
+        return green;
+    }
+
+    public void setGreen(short green) {
+        this.green = green;
+    }
+
+    public short getBlue() {
+        return blue;
+    }
+
+    public void setBlue(short blue) {
+        this.blue = blue;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
