@@ -3,7 +3,7 @@ package by.kutsko.service;
 import by.kutsko.domain.Category;
 import by.kutsko.util.exception.NotFoundException;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by vasily on 27.01.2017.
@@ -18,5 +18,5 @@ public interface CategoryService {
 
     Category get(int id, int userId) throws NotFoundException;
 
-    Collection<Category>  getAll(int userId);
+    List<Category> getAll(int userId);
 }

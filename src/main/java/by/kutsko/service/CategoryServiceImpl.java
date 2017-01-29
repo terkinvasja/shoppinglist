@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by vasily on 27.01.2017.
@@ -41,7 +41,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Collection<Category> getAll(int userId) {
+    public List<Category> getAll(int userId) {
         return repository.getAll(userId);
     }
 }
