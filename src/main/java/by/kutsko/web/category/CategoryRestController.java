@@ -2,11 +2,9 @@ package by.kutsko.web.category;
 
 import by.kutsko.domain.Category;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -27,5 +25,14 @@ public class CategoryRestController extends AbstractCategoryController {
         return super.get(id);
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") int id) {
+        super.delete(id);
+    }
+
+    @PutMapping("/{id}")
+    public void update(@Valid @RequestBody Category category, @PathVariable("id") int id) {
+        super.update(category, id);
+    }
 
 }
