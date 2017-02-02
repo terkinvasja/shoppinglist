@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface ProductRepository {
 
-    Product save(Product product, int userId);
+    Product save(Product product, int categoryId, int userId);
 
     boolean delete(int id, int userId);
 
