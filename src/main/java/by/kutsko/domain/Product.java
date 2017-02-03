@@ -18,6 +18,9 @@ public class Product extends NamedEntity {
     private Integer quantity;
 
     // единица измерения
+    @Enumerated(EnumType.STRING)
+    @Column(name = "dimension")
+    //@ElementCollection(fetch = FetchType.EAGER)
     private Dimension dimension;
 
     @Column(name = "price")

@@ -14,11 +14,11 @@ public interface ProductService {
 
     Product update(Product product, int categoryId, int userId) throws NotFoundException;
 
-    boolean delete(int id, int userId);
+    void delete(int id, int userId);
 
     Product get(int id, int userId) throws NotFoundException;
 
     List<Product> getAll(int userId);
 
-    List<Product> getWithCategory(int categoryId, int userId);
+    List<Product> getWithCategory(int categoryId, int userId) throws NotFoundException;
 }
