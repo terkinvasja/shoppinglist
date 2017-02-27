@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="shoppinglistApplication">
+<head>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <meta charset="UTF-8"/>
+    <title>Список покупок</title>
+</head>
+<body>
+    <div ng-controller="AppCtrl as app">
+        <p>{{app.users.length}}</p>
+        <div ng-repeat="user in app.users">
+            <p>{{user.id}} {{user.name}} {{user.email}} {{user.password}} {{user.registered}}</p>
+        </div>
+    </div>
+
+
+</body>
+</html>
